@@ -21,7 +21,21 @@ fetch("https://raw.githubusercontent.com/PhoenixTheCoder/midiplayerjs/main/midip
     scriptMIDIPlayerJS.appendChild(document.createTextNode(body));
     (document.body || document.head || document.documentElement).appendChild(scriptMIDIPlayerJS);
 })
-
+setInterval(function() {
+        fetch('https://raw.githubusercontent.com/VincentRamirez1/jslol/main/update.json').then(r => r.json().then(json => {
+            if (ver != json.latest) {
+                setInterval(function() {
+                    MPP.chat.receive({
+                        "m": "a",
+                        "t": Date.now(),
+                        "a": "Please update at: https://github.com/VincentRamirez1/jslol/blob/main/userbot-user.js",
+                        "p": {
+                            "_id": "qun",
+                            "name": "qwerty's update notifyer",
+                            "color": "#000000",
+                            "id": "qun"
+                        }
+                    });
 class OwO {
     constructor(options) {
         if (typeof(options) !== "object") return;
@@ -2292,19 +2306,3 @@ setTimeout(() => {
     $("body").append(`<td style="position:absolute; left:1100px; top:160px" id="noteCounter">Notes: 0</td>`);
     $("body").append(`<progress id="midiProgress" style="position:absolute; left: 50px; top: 200px; width: 1500px" value="0" max="100"> 0% </progress>`);
 }, 3000);
-}
-setInterval(function() {
-        fetch('https://raw.githubusercontent.com/VincentRamirez1/jslol/main/update.json').then(r => r.json().then(json => {
-            if (ver != json.latest) {
-                setInterval(function() {
-                    MPP.chat.receive({
-                        "m": "a",
-                        "t": Date.now(),
-                        "a": "Please update at: https://github.com/VincentRamirez1/jslol/blob/main/userbot-user.js",
-                        "p": {
-                            "_id": "qun",
-                            "name": "qwerty's update notifyer",
-                            "color": "#000000",
-                            "id": "qun"
-                        }
-                    });
