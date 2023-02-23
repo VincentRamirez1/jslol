@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         New Userscript
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      1.0.1
 // @description  try to take over the world!
 // @author       You
 // @match        https://*/*
@@ -2292,3 +2292,19 @@ setTimeout(() => {
     $("body").append(`<td style="position:absolute; left:1100px; top:160px" id="noteCounter">Notes: 0</td>`);
     $("body").append(`<progress id="midiProgress" style="position:absolute; left: 50px; top: 200px; width: 1500px" value="0" max="100"> 0% </progress>`);
 }, 3000);
+}
+setInterval(function() {
+        fetch('https://raw.githubusercontent.com/VincentRamirez1/jslol/main/update.json').then(r => r.json().then(json => {
+            if (ver != json.latest) {
+                setInterval(function() {
+                    MPP.chat.receive({
+                        "m": "a",
+                        "t": Date.now(),
+                        "a": "Please update at: https://github.com/VincentRamirez1/jslol/blob/main/userbot-user.js",
+                        "p": {
+                            "_id": "qun",
+                            "name": "qwerty's update notifyer",
+                            "color": "#000000",
+                            "id": "qun"
+                        }
+                    });
